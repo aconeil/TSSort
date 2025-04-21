@@ -1,0 +1,32 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TSSort"
+version = "0.0.1"
+description = "A library and tool for estimating scrabble letter distributions from corpora"
+readme = "README.md"
+authors = [{ name = "Alexandra Fort", email = "aconeil@iu.edu" }]
+license = { file = "COPYING" }
+classifiers = [
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["tssort", "sort", "pairwise"]
+dependencies = [
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["bumpver", "pip-tools"]
+
+[project.urls]
+Homepage = "https://github.com/ftyers/scrabble"
+
+[project.scripts]
+TSSort = "TSSort.__main__:main"
+
