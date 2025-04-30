@@ -58,7 +58,7 @@ def mle(comparisons, sentences):
     sbym_sorted = sorted(sbym.items(), key=lambda item: item[1])
     for item in sbym_sorted:
         print(item)
- 
+    return m, c
 
 def best_rankings(m, x):
     relevance = []
@@ -84,6 +84,3 @@ def best_rankings(m, x):
         relevance = sorted(relevance, key=lambda x: x[0], reverse=True)
     return print(relevance)
 
-comparisons = [[2,0], [1, 0], [2,3], [2,1], [0, 3], [1,3]]
-sentences = ["Hello", "Hello, friend!", "Greetings pal!", "Hi!"]
-mle(comparisons, sentences)
