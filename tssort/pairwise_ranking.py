@@ -1,7 +1,8 @@
 import datetime
 import numpy as np
 import scipy.optimize
-from scipy.stats import mvn
+#https://github.com/scipy/scipy/issues/19441#issuecomment-1783203946 mvn is technically not supported
+from scipy.stats import _mvn
 from functools import lru_cache
 import math
 
@@ -23,19 +24,24 @@ def logcdf(m1, m2, c1, c2):
     cod = (c1 - c2) / 2.0
     cov = [[cd, cod], [cod, cd]]
     mean = [(m1-m2)/sqrt2, (m1+m2)/sqrt2]
-    return math.log(mvn.mvnun(lower, quantiles, mean, cov, maxpts, abseps, releps)[0])
+    return math.log(_mvn.mvnun(lower, quantiles, mean, cov, maxpts, abseps, releps)[0])
 
 #Function to make a means and covariance matrix to be used to generate a list of the best sentence to compare
 #accepts a list of comparisons and a list of sentences
 def mle(comparisons, sentences):
     N = len(sentences)
     sbym = {}
+    #comparisons = [[int(c.split(",")[0]), int(c.split(",")[1])] for c in comparisons]
     def objective(x, comparisons):
         means = x[:N]
         cov = x[N:]
+        #
         try:
-            return -sum(logcdf(means[a], means[b], cov[a], cov[b]) for a, b in comparisons)
-        except:
+            c_hat = -sum(logcdf(means[a], means[b], cov[a], cov[b]) for a, b in comparisons)
+            #print(c_hat)
+            return(c_hat)
+        except Exception as e:
+            print(e)
             return -np.inf
 
     dt = datetime.datetime.now()
@@ -56,9 +62,7 @@ def mle(comparisons, sentences):
     for sentence in sentences:
         sbym[sentence] = m[sentences.index(sentence)]
     sbym_sorted = sorted(sbym.items(), key=lambda item: item[1])
-    for item in sbym_sorted:
-        print(item)
-    return m, c
+    return sbym_sorted, m, c
 
 def best_rankings(m, x):
     relevance = []
@@ -82,5 +86,5 @@ def best_rankings(m, x):
             #append the value of the relevance along with the sentence ids
             relevance.append([res, i, j])
         relevance = sorted(relevance, key=lambda x: x[0], reverse=True)
-    return print(relevance)
+    return relevance
 

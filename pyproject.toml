@@ -1,12 +1,12 @@
 # pyproject.toml
 
 [build-system]
-requires      = ["scipy==1.10.1", "numpy==1.24.4", "wheel"]
+requires      = ["scipy>=1.10", "numpy>=1.24", "wheel", "setuptools>=61.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "TSSort"
-version = "0.0.1"
+version = "0.0.2"
 description = "A library and tool for implementing TSSort in Python, which allows for the sorting of a list using pairwise comparisons while accounting for noisy data."
 readme = "README.md"
 authors = [{ name = "Alexandra Fort", email = "aconeil@iu.edu" }, {name = "Nicholas Howell"}, {name = "Daniel Swanson"}]
@@ -18,8 +18,8 @@ classifiers = [
 ]
 keywords = ["tssort", "sort", "pairwise"]
 dependencies = [
-"scipy==1.10.1",
-"numpy==1.24.4"
+"scipy>=1.10",
+"numpy>=1.24"
 ]
 requires-python = ">=3.7"
 
