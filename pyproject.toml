@@ -5,11 +5,15 @@ requires      = ["scipy==1.15.2", "numpy>=1.24", "wheel", "hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "tssort"
-version = "0.0.1"
+name = "TSSort"
+version = "0.0.2"
 description = "A library and tool for implementing TSSort in Python, which allows for the sorting of a list using pairwise comparisons while accounting for noisy data."
 readme = "README.md"
-authors = [{ name = "Alexandra Fort", email = "aconeil@iu.edu" }, {name = "Nicholas Howell"}, {name = "Daniel Swanson"}]
+authors = [
+	{name="Alexandra Fort"},
+	{name="Daniel Swanson"},
+	{name="Nicholas Howell"},
+]
 license = "MIT"
 license-files = ["LICEN[CS]E"]
 classifiers = [

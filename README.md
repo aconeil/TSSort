@@ -1,4 +1,4 @@
-This repository contains and implementation of the TSSort algorithm proposed in "TSSort – Probabilistic Noise Resistant Sorting" (Hees et al., 2011).
+This repository contains an implementation of the TSSort algorithm proposed in "TSSort – Probabilistic Noise Resistant Sorting" (Hees et al., 2011).
 
 # Expected Input
 This module expects a text file with a list of sentences separated by newline and a text file of a list of pairwise comparisons in the form int,int and separated by newline. See the sample data files ```comparisons.txt``` and ```sentences.txt``` in the linked github for an example. The list of pairwise comparisons refers to the sentence index (starting at 0), wherein the first number is the easier sentence and the second number is the harder sentence.
