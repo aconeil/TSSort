@@ -6,7 +6,7 @@ from pairwise_ranking import *
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='TSSort Algorithm Implementation', 
-                                     description='This repository contains and implementation of the TSSort algorithm proposed in "TSSort – Probabilistic Noise Resistant Sorting" (Hees et al., 2011).')
+                                     description='This repository contains an implementation of the TSSort algorithm proposed in "TSSort – Probabilistic Noise Resistant Sorting" (Hees et al., 2011).')
     parser.add_argument('infile', nargs=2, action='store')
     parser.add_argument('-n', '--next_comparisons', action='store_true')
     parser.add_argument('-l', '--list', action='store_true')

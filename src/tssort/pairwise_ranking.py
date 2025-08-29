@@ -19,8 +19,8 @@ sqrt2 = np.sqrt(2)
 #Function to make a log cdf given means and covariance values of two sentences
 def logcdf(m1, m2, c1, c2):
     cd = (c1 + c2) / 2.0
-    if c1*c2 < cd*eps_factor:
-        raise ValueError('singular matrix')
+    #if c1*c2 < cd*eps_factor:
+    #    raise ValueError('singular matrix')
     cod = (c1 - c2) / 2.0
     cov = [[cd, cod], [cod, cd]]
     mean = [(m1-m2)/sqrt2, (m1+m2)/sqrt2]
@@ -85,6 +85,6 @@ def best_rankings(m, x):
             res = p1*p2
             #append the value of the relevance along with the sentence ids
             relevance.append([res, i, j])
-        relevance = sorted(relevance, key=lambda x: x[0], reverse=True)
+        relevance = sorted(relevance, key=lambda x: x[0], reverse=False)
     return relevance
 
